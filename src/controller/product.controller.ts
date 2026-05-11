@@ -23,5 +23,7 @@ export const productController = (req :IncomingMessage , res: ServerResponse) =>
     res.end(JSON.stringify({message: "Products retrived successfull",
      data: products}))
     }
-    else if(method === 'GET'){}
+    else if(method === 'GET' && id !== null){
+        
+    }
 }

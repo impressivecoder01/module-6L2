@@ -1,9 +1,32 @@
 [
-    {
-        "id": 1,
-        "name" : "product-1",
-        "Price" : 333
-        
-
-    }
+  {
+    "id": 1,
+    "name": "Apple iPhone 15 Pro",
+    "price": 999,
+    "description": "A premium smartphone with A17 Pro chip, 48MP camera system, and titanium design."
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S24 Ultra",
+    "price": 1199,
+    "description": "High-end Android phone featuring a 200MP camera, S Pen support, and powerful performance."
+  },
+  {
+    "id": 3,
+    "name": "Sony WH-1000XM5 Headphones",
+    "price": 399,
+    "description": "Industry-leading noise cancelling wireless headphones with exceptional sound quality."
+  },
+  {
+    "id": 4,
+    "name": "Dell XPS 13 Laptop",
+    "price": 1099,
+    "description": "Compact and powerful ultrabook with Intel Core processor and InfinityEdge display."
+  },
+  {
+    "id": 5,
+    "name": "Nike Air Max 270",
+    "price": 150,
+    "description": "Stylish and comfortable sneakers with a large Air unit for everyday wear."
+  }
 ]
