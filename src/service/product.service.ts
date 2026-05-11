@@ -11,3 +11,7 @@ export const readProduct = () => {
     // console.log(products);
     return JSON.parse(products)
 }
+
+export const insertProduct = (payLoad: any) =>{
+    fs.writeFileSync(filePath,JSON.stringify(payLoad))
+}
