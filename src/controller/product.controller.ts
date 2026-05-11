@@ -1,8 +1,10 @@
 import type { IncomingMessage, ServerResponse } from "http";
 import { readProduct } from "../service/product.service";
 import type { IProduct } from "../types/products.type";
+import { parseBody } from "../utility/partsBody";
 
-export const productController = (req :IncomingMessage , res: ServerResponse) => {
+export const productController = async(req :IncomingMessage , res: ServerResponse) => {
+    // console.log("body", );
     const url = req.url
     const method = req.method
     const urlParts = url?.split("/")
@@ -15,7 +17,6 @@ export const productController = (req :IncomingMessage , res: ServerResponse) =>
         //     {
         //         id: 1,
         //         name: 'Product-1'
-
         //     }
         // ]
         const products =  readProduct()
@@ -29,7 +30,15 @@ export const productController = (req :IncomingMessage , res: ServerResponse) =>
         const product = products.find((p:IProduct)=> p.id === id)
         console.log(product);
         res.writeHead(200, {"content-type" : "application/json"})
-    res.end(JSON.stringify({message: "Product retrieved successfully",
+        res.end(JSON.stringify({message: "Product retrieved successfully",
      data: product}))
+    }
+    else if(method === 'POST' && url === '/products'){
+        const body = await parseBody(req)
+        console.log('body',body);
+        res.writeHead(200, {"content-type" : "application/json"})
+        res.end(JSON.stringify({message: "Product retrieved successfully",
+    //  data: product
+    }))
     }
 }
