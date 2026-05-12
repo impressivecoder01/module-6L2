@@ -53,7 +53,7 @@ export const productController = async(req :IncomingMessage , res: ServerRespons
         const body = await parseBody(req)
         const products = readProduct()
         const index = products.findIndex((p: IProduct)=> p.id===id)
-        console.log(index);
+        // console.log(index);
         if(index <0){
            res.writeHead(404, {"content-type" : "application/json"})
         res.end(JSON.stringify({message: "Product not found",data: null}))
@@ -62,4 +62,20 @@ export const productController = async(req :IncomingMessage , res: ServerRespons
         res.writeHead(200, {"content-type" : "application/json"})
         res.end(JSON.stringify({message: "Product  updated",data: products[index]}))
     }
+    else if(method === 'DELETE' && id !== null){
+
+        const products = readProduct()
+        const index = products.findIndex((p : IProduct)=> p.id === id)
+
+         if(index <0){
+           res.writeHead(404, {"content-type" : "application/json"})
+        res.end(JSON.stringify({message: "Product not found",data: null}))
+        }
+        products.splice(index,1)
+        // console.log(products);
+        insertProduct(products)
+         res.writeHead(200, {"content-type" : "application/json"})
+        res.end(JSON.stringify({message: "Product Deleted",data: products}))
+
+}
 }
