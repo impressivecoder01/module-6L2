@@ -75,7 +75,7 @@ export const productController = async(req :IncomingMessage , res: ServerRespons
         // console.log(products);
         insertProduct(products)
          res.writeHead(200, {"content-type" : "application/json"})
-        res.end(JSON.stringify({message: "Product Deleted",data: products}))
+        res.end(JSON.stringify({message: "Product Deleted",data: products})) 
 
 }
 }
